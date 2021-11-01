@@ -14,18 +14,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Document(collection ="posts")
 public class Post {
     
     @Id
     private String id;
+    
+    @NonNull
 	private Instant moment;
+
+    @NonNull
 	private String title;
+
+    @NonNull
 	private String body;
+
+    @NonNull
 	private Author author;
 
     @Getter
