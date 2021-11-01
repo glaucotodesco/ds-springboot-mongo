@@ -3,6 +3,7 @@ package com.wsmongo.springbootmongo.resources;
 import java.net.URI;
 import java.util.List;
 
+import com.wsmongo.springbootmongo.models.dtos.PostDTO;
 import com.wsmongo.springbootmongo.models.dtos.UserDTO;
 import com.wsmongo.springbootmongo.services.UserService;
 
@@ -54,5 +55,11 @@ public class UserResource {
         userService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{id}/posts")
+    public ResponseEntity<List<PostDTO>> getUserPosts(@PathVariable String id) {
+       List<PostDTO> list = userService.getUserPosts(id);
+       return ResponseEntity.ok().body(list);
+   }
 
 }
